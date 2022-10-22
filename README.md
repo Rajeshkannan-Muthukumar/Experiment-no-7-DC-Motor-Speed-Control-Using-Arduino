@@ -1,5 +1,10 @@
 # Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino
-### AIM : To control the speed and the direction of a DC motor using L293D driver ic( H- bridge)
+```
+NAME    : M.RAJESHKANNAN
+REG NO  : 212221230081
+```
+### AIM :
+ To control the speed and the direction of a DC motor using L293D driver ic( H- bridge)
 
 ### Components Required:
 •	Arduino UNO board
@@ -27,12 +32,71 @@ As shown in the circuit diagram we need only 3 Arduino terminal pins, pin 8 is f
 
 ### PRGORAM 
 
+#### PROGRAM TO MAKE DC MOTOR ROTATE
+```
+const int motorpin1 = 5;
+const int motorpin2 = 6;
+
+void setup()
+{
+  pinMode(motorpin1, OUTPUT);
+  pinMode(motorpin2, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(motorpin1, HIGH);
+  delay(2000);
+  digitalWrite(motorpin2, LOW);
+  delay(2000);
+}
+
+```
+#### PROGRAM TO CONTROL DC MOTOR ROTATION
+```
+#define motorIn1 5
+#define motorIn2 6
+
+void setup()
+{
+  pinMode(motorIn1,OUTPUT);
+  pinMode(motorIn2,OUTPUT);
+}
+void loop()
+{
+  clockwise(0);
+  delay(3000);
+  counterclockwise(50);
+  delay(3000);
+}
+void counterclockwise(int speed)
+{
+  analogWrite(motorIn1,speed);
+  analogWrite(motorIn2,0);
+}
+
+void clockwise(int speed)
+{
+  
+  analogWrite(motorIn1,0);
+  analogWrite(motorIn2,speed);
+}
+
+```
+### CIRCUIT DIAGRAM
+![OP](https://user-images.githubusercontent.com/93901857/197345758-e780fe9e-2e84-45c0-a114-f70d7dbc616f.jpg)
+
 ### OUTPUT
 
-### GRAPH AND TABULATION 
+####  GRAPH AND TABULATION 
+##### CLOCKWISE
+![CWG](https://user-images.githubusercontent.com/93901857/197345756-ec3dc29e-c9dc-4d3a-a8be-073e3fc9f47a.jpg)
+![CWT](https://user-images.githubusercontent.com/93901857/197345757-5fba1a95-d804-4c06-bde0-506134e8ce60.jpg)
 
+##### COUNTER CLOCKWISE
 
-
+![CCWG](https://user-images.githubusercontent.com/93901857/197345752-7fab318c-01be-4e8e-a468-2d73b796841f.jpg)
+![CCWT](https://user-images.githubusercontent.com/93901857/197345755-1cbae9a4-bc85-4bcf-b31f-aefa8db97db1.jpg)
 
 ### RESULTS AND DISCUSSION 
-
+Thus, the speed and the direction of a DC motor using L293D driver ic( H- bridge) is controlled.
